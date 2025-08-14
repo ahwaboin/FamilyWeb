@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="picDAO">
+
+	<resultMap type="picVO" id="picResultSet">
+		<id property="picId" column="picId" />
+		<result property="galleryId" column="galleryId" />
+		<result property="division" column="division" />
+		<result property="title" column="title" />
+		<result property="img" column="img" />
+	</resultMap>
+	
+	<select id="getAll" parameterType="galleryVO" resultMap="picResultSet">
+		SELECT * FROM picture where galleryId=#{galleryId}
+	</select>
+
+	<!-- 갤러리 삭제시 모두 삭제 -->
+	<delete id="deletePicAll" parameterType="galleryVO">
+		DELETE FROM picture WHERE
+		galleryId = #{galleryId}
+	</delete>
+	
+	<delete id="deletePic" parameterType="picVO">
+		DELETE FROM picture WHERE
+		picId = #{picId}
+	</delete>
+	
+	<insert id="insertPic" parameterType="picVO">
+		INSERT INTO picture (picId,galleryId,img)
+		VALUES(null,#{galleryId},#{img})
+	</insert>
+	
+	<!-- 
+	<update id="updateStory" parameterType="storyVO">
+		UPDATE story
+		SET
+		title=#{title},
+		content=#{content},
+		day=#{day},
+		img=#{img}
+		WHERE
+		id = #{id}
+	</update>
+	<select id="getSomething" parameterType="int" resultType="#package.#modelname">
+		SELECT
+		columnname1,
+		columnname2,
+		columnname3
+		FROM tablename1
+		WHERE columnname1 = #{value}
+	</select>
+	 -->
+
+</mapper>

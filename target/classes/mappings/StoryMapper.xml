@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="storyDAO">
+
+	<resultMap type="storyVO" id="storyResultSet">
+		<id property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="day" column="day" />
+		<result property="img" column="img" />
+	</resultMap>
+	
+	<select id="getAll" resultMap="storyResultSet">
+		SELECT * FROM story
+	</select>
+	
+	<update id="updateStory" parameterType="storyVO">
+		UPDATE story
+		SET
+		title=#{title},
+		content=#{content},
+		day=#{day},
+		img=#{img}
+		WHERE
+		id = #{id}
+	</update>
+
+	<delete id="deleteStory" parameterType="storyVO">
+		DELETE FROM story WHERE
+		id = #{id}
+	</delete>
+	
+	<insert id="insertStory" parameterType="storyVO">
+		INSERT INTO story (id,title, content,day,img)
+		VALUES(#{id},#{title},#{content},#{day},#{img})
+	</insert>
+	
+	<!-- 
+	<select id="getSomething" parameterType="int" resultType="#package.#modelname">
+		SELECT
+		columnname1,
+		columnname2,
+		columnname3
+		FROM tablename1
+		WHERE columnname1 = #{value}
+	</select>
+	 -->
+
+</mapper>

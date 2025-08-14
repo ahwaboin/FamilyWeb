@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="galleryDAO">
+
+	<resultMap type="galleryVO" id="galleryResultSet">
+		<id property="galleryId" column="galleryId" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="day" column="day" />
+	</resultMap>
+	
+	<select id="getAll" resultMap="galleryResultSet">
+		SELECT * FROM gallery
+	</select>
+
+	<delete id="deleteGallery" parameterType="galleryVO">
+		DELETE FROM gallery WHERE
+		galleryId = #{galleryId}
+	</delete>
+	
+	<insert id="insertGallery" parameterType="galleryVO">
+		INSERT INTO gallery (title,content,day,mainImg)
+		VALUES(#{title},#{content},#{day},#{mainImg})
+	</insert>
+	
+	<update id="updateGallery" parameterType="galleryVO">
+		UPDATE gallery
+		SET
+		title=#{title},
+		content=#{content},
+		day=#{day},
+		mainImg=#{mainImg}
+		WHERE
+		galleryId = #{galleryId}
+	</update>
+	<select id="getGallery" parameterType="galleryVO" resultMap="galleryResultSet">
+		SELECT
+		*
+		FROM gallery
+		WHERE galleryId = #{galleryId}
+	</select>
+
+</mapper>

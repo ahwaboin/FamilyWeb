@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.mycompany.family.vo.UserVO" alias="userVO"></typeAlias>
+		<typeAlias type="com.mycompany.family.vo.ImgVO" alias="imgVO"></typeAlias>
+		<typeAlias type="com.mycompany.family.vo.PersonVO" alias="personVO"></typeAlias>
+		<typeAlias type="com.mycompany.family.vo.StoryVO" alias="storyVO"></typeAlias>
+		<typeAlias type="com.mycompany.family.vo.GalleryVO" alias="galleryVO"></typeAlias>
+		<typeAlias type="com.mycompany.family.vo.PicVO" alias="picVO"></typeAlias>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mappings/UserMapper.xml" />
+		<mapper resource="mappings/ImgMapper.xml" />
+		<mapper resource="mappings/PersonMapper.xml" />
+		<mapper resource="mappings/StoryMapper.xml" />
+		<mapper resource="mappings/GalleryMapper.xml" />
+		<mapper resource="mappings/PicMapper.xml" />
+	</mappers>
+	
+</configuration>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="personDAO">
+
+	<resultMap type="personVO" id="personResultSet">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="profile" column="profile" />
+		<result property="birth" column="birth" />
+		<result property="role" column="role" />
+		<result property="img" column="img" />
+	</resultMap>
+	
+	<select id="getAll" resultMap="personResultSet">
+		SELECT * FROM person
+	</select>
+	
+	<update id="updatePerson" parameterType="personVO">
+		UPDATE person
+		SET
+		name=#{name},
+		profile=#{profile},
+		birth=#{birth},
+		role=#{role},
+		img=#{img}
+		WHERE
+		id = #{id}
+	</update>
+
+	<delete id="deletePerson" parameterType="personVO">
+		DELETE FROM person WHERE
+		id = #{id}
+	</delete>
+	
+	<insert id="insertPerson" parameterType="personVO">
+		INSERT INTO person (id,name, profile, birth,role,img)
+		VALUES(#{id},#{name},#{profile},#{birth},#{role},#{img})
+	</insert>
+	
+	<!-- 
+	<select id="getSomething" parameterType="int" resultType="#package.#modelname">
+		SELECT
+		columnname1,
+		columnname2,
+		columnname3
+		FROM tablename1
+		WHERE columnname1 = #{value}
+	</select>
+	 -->
+
+</mapper>
