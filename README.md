@@ -14,13 +14,13 @@
 - mysql 사용   
     ![image](/images/dbtables.jpg)
 
-## 관리자 페이지 구현
-- CMS 처럼 관리자 페이지 구현   
-    ![image](images/usermanagement.jpg)
-
 ## 회원관리 구현
 - 스프링 시큐리티를 사용하여 회원관리 구현   
     ![image](images/adminpage.jpg)
+
+## 관리자 페이지 구현
+- CMS 처럼 관리자 페이지 구현   
+    ![image](images/usermanagement.jpg)
 
 ## 관리자 페이지 기능
 - 배경 이미지 교체   
@@ -32,4 +32,9 @@
 - 가족 스토리 관리 기능   
     ![image](images/storyadmin.jpg)
     ![image](images/storyadmin2.jpg)
+
+## 부트스트랩 기반으로 만든 반응형 웹   
+![image](images/repon1.jpg)
+![image](images/repon2.jpg)
+
 
