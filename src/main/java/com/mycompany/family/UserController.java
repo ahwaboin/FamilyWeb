@@ -33,7 +33,7 @@ public class UserController {
 	
 	@RequestMapping("/admin/insertUser")
 	public String insertUser(UserVO userVO){
-//		System.out.println(userVO.getPassword());
+		System.out.println(userVO.getPassword());
 		String encodedPassword = encoder.encode(userVO.getPassword());
 		List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_ADMIN");
 		UserDetails user= new User(userVO.getUsername(), encodedPassword, authorities);
